@@ -1,4 +1,4 @@
-# invertu-landing-page
+# INVERTU LANDING PAGE
 
 ## Descripción de cada archivo
 
