@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="InvertU: plataforma web de gestión financiera para estudiantes. Organiza tus movimientos, planifica tus metas y decide mejor."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>InvertU — Entiende tu dinero. Decide mejor.</title>
+</head>
+
+<body>
+
+    <header class="site-header" id="inicio">
+        <div class="container header-inner">
+
+            <a
+                href="#inicio"
+                class="brand"
+                aria-label="InvertU inicio"
+            >
+                <img
+                    src="assets/img/logo.png"
+                    alt="Logo InvertU"
+                    class="brand-logo"
+                >
+            </a>
+
+            <nav
+                class="main-nav"
+                aria-label="Navegación principal"
+            >
+                <a href="#inicio" class="active">Inicio</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#asistente">Asistente</a>
+                <a href="#planes">Planes</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#ayuda">Ayuda</a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                ☰
+            </button>
+            <div class="header-ctas">
+                <button
+                    type="button"
+                    class="btn btn-ghost"
+                >
+                    Iniciar sesión
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                >
+                    Crear cuenta gratis
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section
+            id="hero"
+            class="hero section--cream"
+        >
+            <div class="container hero-grid">
+
+                <div class="hero-copy">
+
+                    <span class="badge">
+                        GESTIÓN FINANCIERA PARA ESTUDIANTES
+                    </span>
+
+                    <h1>
+                        Entiende tu dinero.
+                        <span class="accent">
+                            Decide mejor.
+                        </span>
+                    </h1>
+
+                    <p class="lead">
+                        Organiza tus movimientos, planifica tus metas y toma el
+                        control de tu vida financiera de forma simple y segura,
+                        sin complicaciones bancarias.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-lg"
+                        >
+                            Crear cuenta gratis
+                        </button>
+
+                        <a
+                            href="#beneficios"
+                            class="btn btn-outline btn-lg"
+                        >
+                            Explorar funciones
+                        </a>
+
+                    </div>
+
+                    <ul
+                        class="checklist"
+                        role="list"
+                    >
+                        <li>
+                            Acceso desde tu navegador
+                        </li>
+
+                        <li>
+                            Registro simple y rápido
+                        </li>
+
+                        <li>
+                            Información siempre organizada
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="hero-visual">
+
+                    <img
+                        src="assets/img/hero-dashboard.png"
+                        alt="Vista previa del panel financiero de InvertU"
+                    >
+
+                </div>
+
+            </div>
+        </section>
+
+        <section
+            id="beneficios"
+            class="benefits section--muted"
+        >
+            <div class="container">
+
+                <h2>
+                    Más claridad para tomar mejores decisiones
+                </h2>
+
+                <p class="section-lead">
+                    Entendemos que manejar dinero como estudiante puede ser
+                    confuso. InvertU te da las herramientas para que sepas
+                    exactamente dónde estás parado.
+                </p>
+
+                <div
+                    id="benefits-grid"
+                    class="benefits-grid"
+                >
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            <img
+                                src="assets/img/icon-control.png"
+                                alt=""
+                            >
+                        </div>
+
+                        <h3>
+                            Control mensual
+                        </h3>
+
+                        <p>
+                            Conoce tu balance real al instante, separando lo que
+                            tienes de lo que ya gastaste.
+                        </p>
+
+                    </article>
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            <img
+                                src="assets/img/icon-analysis.png"
+                                alt=""
+                            >
+                        </div>
+
+                        <h3>
+                            Análisis de gastos
+                        </h3>
+
+                        <p>
+                            Categoriza automáticamente tus consumos para
+                            descubrir fugas de dinero.
+                        </p>
+
+                    </article>
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            <img
+                                src="assets/img/icon-goals.png"
+                                alt=""
+                            >
+                        </div>
+
+                        <h3>
+                            Planificación de metas
+                        </h3>
+
+                        <p>
+                            Define objetivos de ahorro y observa tu progreso de
+                            manera visual e inspiradora.
+                        </p>
+
+                    </article>
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            <img
+                                src="assets/img/icon-payments.png"
+                                alt=""
+                            >
+                        </div>
+
+                        <h3>
+                            Seguimiento de pagos
+                        </h3>
+
+                        <p>
+                            Identifica tus suscripciones recurrentes para no
+                            pagar de más por descuidos.
+                        </p>
+
+                    </article>
+
+                </div>
+
+                <div
+                    class="stats-strip"
+                    role="list"
+                >
+
+                    <div
+                        class="stat"
+                        role="listitem"
+                    >
+                        <small>
+                            Disponible Hoy
+                        </small>
+
+                        <strong class="ok">
+                            S/ 320.00
+                        </strong>
+                    </div>
+
+                    <div
+                        class="stat"
+                        role="listitem"
+                    >
+                        <small>
+                            Gastado (Mes)
+                        </small>
+
+                        <strong class="bad">
+                            S/ 900.00
+                        </strong>
+                    </div>
+
+                    <div
+                        class="stat"
+                        role="listitem"
+                    >
+                        <small>
+                            Meta Principal
+                        </small>
+
+                        <strong class="mid">
+                            68%
+                        </strong>
+                    </div>
+
+                    <div
+                        class="stat"
+                        role="listitem"
+                    >
+                        <small>
+                            Suscripciones
+                        </small>
+
+                        <strong class="ok">
+                            S/ 73.70
+                        </strong>
+                    </div>
+
+                </div>
+
+                <div class="center">
+
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-lg"
+                    >
+                        Comenzar a organizarme
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section
+            id="asistente"
+            class="assistant section--dark"
+        >
+            <div class="container assistant-grid">
+
+                <div class="assistant-copy">
+
+                    <span class="badge badge--gold">
+                        NUEVO ASISTENTE INTELIGENTE
+                    </span>
+
+                    <h2>
+                        Consulta tus finanzas usando palabras simples
+                    </h2>
+
+                    <p>
+                        Habla con tu dinero. Pregúntale a InvertU sobre tus
+                        gastos o dile que registre un nuevo movimiento como si
+                        chatearas con un amigo.
+                    </p>
+
+                    <ul
+                        class="prompts"
+                        role="list"
+                    >
+
+                        <li>
+                            <button
+                                type="button"
+                                class="prompt"
+                            >
+                                "¿Cuánto gasté este mes en comida?"
+                                <span aria-hidden="true">
+                                    ›
+                                </span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button
+                                type="button"
+                                class="prompt"
+                            >
+                                "Añade 15 soles en transporte de hoy"
+                                <span aria-hidden="true">
+                                    ›
+                                </span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button
+                                type="button"
+                                class="prompt"
+                            >
+                                "¿Me alcanza para salir el viernes?"
+                                <span aria-hidden="true">
+                                    ›
+                                </span>
+                            </button>
+                        </li>
+
+                    </ul>
+
+                    <div id="assistant-response" class="assistant-response" hidden aria-live="polite">
+                        <p id="assistant-response-text"></p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn btn-gold btn-lg"
+                    >
+                        Conocer el asistente
+                    </button>
+
+                </div>
+
+                <div class="assistant-visual">
+
+                    <img
+                        src="assets/img/assistant.png"
+                        alt="Vista previa del asistente inteligente de InvertU"
+                    >
+
+                </div>
+
+            </div>
+        </section>
+
+        <section
+            id="testimonios"
+            class="testimonials section--muted"
+        >
+            <div class="container">
+
+                <h2>
+                    ¿Qué dicen los estudiantes sobre InvertU?
+                </h2>
+
+                <p class="section-lead">
+                    Miles de jóvenes ya están tomando el control de sus finanzas
+                    con nosotros.
+                </p>
+
+                <div
+                    id="testimonials-track"
+                    class="testimonials-track"
+                >
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-user">
+
+                            <img
+                                src="assets/img/testimonial-andrea.png"
+                                alt="Andrea"
+                                class="testimonial-avatar"
+                            >
+
+                            <div>
+                                <strong>
+                                    Andrea
+                                </strong>
+
+                                <span>
+                                    Estudiante de Economía
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p>
+                            "Por fin entiendo a dónde se va mi dinero cada mes.
+                            El asistente me ayuda a mantener mi registro al día
+                            sin esfuerzo."
+                        </p>
+
+                    </article>
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-user">
+
+                            <img
+                                src="assets/img/testimonial-ricardo.png"
+                                alt="Ricardo"
+                                class="testimonial-avatar"
+                            >
+
+                            <div>
+                                <strong>
+                                    Ricardo
+                                </strong>
+
+                                <span>
+                                    Estudiante de Ingeniería
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p>
+                            "Ahorrar para mi nueva laptop parecía imposible
+                            hasta que empecé a usar las metas de InvertU.
+                            ¡Ver el progreso me motiva a seguir!"
+                        </p>
+
+                    </article>
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-user">
+
+                            <img
+                                src="assets/img/testimonial-lucia.png"
+                                alt="Lucía"
+                                class="testimonial-avatar"
+                            >
+
+                            <div>
+                                <strong>
+                                    Lucía
+                                </strong>
+
+                                <span>
+                                    Estudiante de Diseño
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p>
+                            "Me encanta cómo puedo ver mis gastos diarios de
+                            forma tan clara. Es súper práctico y fácil de usar
+                            para organizar mi presupuesto sin complicaciones."
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section
+            id="planes"
+            class="pricing section--cream"
+        >
+            <div class="container">
+
+                <h2>
+                    Elige tu plan
+                </h2>
+
+                <p class="section-lead">
+                    Empieza gratis, mejora cuando lo necesites. Los precios y
+                    beneficios son referenciales.
+                </p>
+
+                <div
+                    id="pricing-grid"
+                    class="pricing-grid"
+                >
+
+                    <article class="price-card">
+
+                        <h3>
+                            Plan Gratuito
+                        </h3>
+
+                        <div class="price">
+                            S/ 0
+                            <span>
+                                /mes
+                            </span>
+                        </div>
+
+                        <ul>
+                            <li>
+                                Registro manual de movimientos
+                            </li>
+
+                            <li>
+                                Categorías básicas y dashboard
+                            </li>
+
+                            <li>
+                                1 Meta de ahorro activa
+                            </li>
+
+                            <li>
+                                Asistente inteligente
+                                (consultas básicas)
+                            </li>
+                        </ul>
+
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                        >
+                            Crear cuenta gratis
+                        </button>
+
+                    </article>
+
+                    <article class="price-card price-card-featured">
+
+                        <span class="recommended">
+                            RECOMENDADO
+                        </span>
+
+                        <h3>
+                            Plan Premium
+                        </h3>
+
+                        <div class="price">
+                            S/ 7.90
+                            <span>
+                                /mes
+                            </span>
+                        </div>
+
+                        <ul>
+                            <li>
+                                Metas de ahorro ilimitadas
+                            </li>
+
+                            <li>
+                                Detección asistida de suscripciones
+                            </li>
+
+                            <li>
+                                Simulaciones y proyecciones
+                            </li>
+
+                            <li>
+                                Reportes avanzados e historial completo
+                            </li>
+                        </ul>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                        >
+                            Elegir Premium
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section
+            id="ayuda"
+            class="trust section--muted"
+        >
+            <div class="container">
+
+                <h2>
+                    Tu información permanece bajo tu control
+                </h2>
+
+                <div class="trust-grid">
+
+                    <article class="trust-card">
+
+                        <img
+                            src="assets/img/security-bank.png"
+                            alt=""
+                            class="trust-icon"
+                        >
+
+                        <h3>
+                            Sin credenciales bancarias
+                        </h3>
+
+                        <p>
+                            Nunca te pediremos tu clave de internet, token o PIN
+                            del banco.
+                        </p>
+
+                    </article>
+
+                    <article class="trust-card">
+
+                        <img
+                            src="assets/img/security-control.png"
+                            alt=""
+                            class="trust-icon"
+                        >
+
+                        <h3>
+                            Tú confirmas todo
+                        </h3>
+
+                        <p>
+                            InvertU sugiere, tú decides. Tienes el control total
+                            de los registros.
+                        </p>
+
+                    </article>
+
+                    <article class="trust-card">
+
+                        <img
+                            src="assets/img/security-web.png"
+                            alt=""
+                            class="trust-icon"
+                        >
+
+                        <h3>
+                            Plataforma Web
+                        </h3>
+
+                        <p>
+                            Accede desde cualquier navegador sin descargar apps
+                            pesadas.
+                        </p>
+
+                    </article>
+
+                </div>
+
+                <div class="faq">
+
+                    <h3>
+                        Preguntas Frecuentes
+                    </h3>
+
+                    <div id="faq-list">
+
+                        <details>
+                            <summary>
+                                ¿Se conecta automáticamente a mi banco?
+                            </summary>
+
+                            <p>
+                                InvertU no solicita credenciales bancarias.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>
+                                ¿Por qué piden números de tarjeta?
+                            </summary>
+
+                            <p>
+                                Esta información se utilizará según las
+                                condiciones del servicio.
+                            </p>
+                        </details>
+
+                    </div>
+
+                </div>
+
+                <p class="center">
+
+                    <a
+                        href="#contacto"
+                        class="support-link"
+                    >
+                        Contactar soporte
+                    </a>
+
+                </p>
+
+            </div>
+        </section>
+
+        <section class="final-cta section--green">
+
+            <div class="container center">
+
+                <h2>
+                    Empieza a tomar decisiones con información más clara
+                </h2>
+
+                <div class="cta-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-white btn-lg"
+                    >
+                        Crear cuenta gratis
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline-white btn-lg"
+                    >
+                        Iniciar sesión
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer
+        id="contacto"
+        class="site-footer"
+    >
+
+        <div class="container footer">
+
+            <div class="footer-top">
+
+                <a
+                    href="#inicio"
+                    class="footer-brand"
+                >
+                    InvertU
+                </a>
+
+                <nav
+                    class="footer-nav"
+                    aria-label="Pie de página"
+                >
+                    <a href="#inicio">
+                        Inicio
+                    </a>
+
+                    <a href="#beneficios">
+                        Beneficios
+                    </a>
+
+                    <a href="#asistente">
+                        Asistente
+                    </a>
+
+                    <a href="#planes">
+                        Planes
+                    </a>
+
+                    <a href="#ayuda">
+                        Ayuda
+                    </a>
+
+                    <a href="#contacto">
+                        Contacto
+                    </a>
+
+                    <a href="#">
+                        T&amp;C
+                    </a>
+
+                    <a href="#">
+                        Privacy
+                    </a>
+                </nav>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <small>
+                    © 2026 InvertU. Empoderando el futuro financiero estudiantil.
+                </small>
+
+                <div class="language-control">
+                    <span class="language-label">Idioma</span>
+                    <select id="language-select" aria-label="Idioma">
+                        <option class="language-option-es" value="es">Español</option>
+                        <option class="language-option-en" value="en">English</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <div id="status-message" class="status-message" role="status" aria-live="polite"></div>
+
+    <div id="support-modal" class="support-modal" aria-hidden="true">
+        <div class="support-dialog" role="dialog" aria-modal="true" aria-labelledby="support-title">
+            <button id="support-close" class="support-close" type="button" aria-label="Cerrar">×</button>
+            <h2 id="support-title">Contactar soporte</h2>
+            <form id="support-form">
+                <label for="support-name">Nombre</label>
+                <input id="support-name" name="name" type="text" required>
+                <label for="support-email">Correo</label>
+                <input id="support-email" name="email" type="email" required>
+                <label for="support-message">Mensaje</label>
+                <textarea id="support-message" name="message" rows="4" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                <p id="support-status" class="support-status"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
