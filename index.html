@@ -7,6 +7,7 @@
     <meta
         name="description"
         content="InvertU: plataforma web de gestión financiera para estudiantes. Organiza tus movimientos, planifica tus metas y decide mejor."
+        data-i18n-attr="content:meta.description"
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,57 +18,83 @@
         rel="stylesheet"
     >
 
+    <!-- Íconos (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title>InvertU — Entiende tu dinero. Decide mejor.</title>
+    <title data-i18n="meta.title">InvertU — Entiende tu dinero. Decide mejor.</title>
 </head>
 
 <body>
 
+    <!-- ==========================================
+         Barra superior
+         ========================================== -->
     <header class="site-header" id="inicio">
         <div class="container header-inner">
 
-            <a
-                href="#inicio"
-                class="brand"
-                aria-label="InvertU inicio"
-            >
-                <img
-                    src="assets/img/logo.png"
-                    alt="Logo InvertU"
-                    class="brand-logo"
-                >
+            <a href="#inicio" class="brand" aria-label="InvertU, ir al inicio" data-i18n-attr="aria-label:header.homeLabel">
+                <img src="assets/img/logo.png" alt="Logo de InvertU" class="brand-logo" data-i18n-attr="alt:header.logoAlt">
             </a>
 
-            <nav
-                class="main-nav"
-                aria-label="Navegación principal"
-            >
-                <a href="#inicio" class="active">Inicio</a>
-                <a href="#beneficios">Beneficios</a>
-                <a href="#asistente">Asistente</a>
-                <a href="#planes">Planes</a>
-                <a href="#testimonios">Testimonios</a>
-                <a href="#ayuda">Ayuda</a>
+            <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-i18n-attr="aria-label:nav.label">
+                <a href="#inicio" class="active" data-i18n="nav.home">Inicio</a>
+                <a href="#beneficios" data-i18n="nav.benefits">Beneficios</a>
+                <a href="#asistente" data-i18n="nav.assistant">Asistente</a>
+                <a href="#testimonios" data-i18n="nav.testimonials">Testimonios</a>
+                <a href="#planes" data-i18n="nav.plans">Planes</a>
+                <a href="#ayuda" data-i18n="nav.help">Ayuda</a>
             </nav>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-                ☰
-            </button>
+
             <div class="header-ctas">
-                <button
-                    type="button"
-                    class="btn btn-ghost"
-                >
-                    Iniciar sesión
-                </button>
+
+                <!-- Selector de idioma: el mundito abre el menú ES / EN -->
+                <div class="lang-menu" id="lang-menu">
+                    <button
+                        type="button"
+                        class="lang-toggle"
+                        id="lang-toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="lang-list"
+                        aria-label="Idioma"
+                        data-i18n-attr="aria-label:lang.label"
+                    >
+                        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                        <span class="lang-current" id="lang-current">ES</span>
+                        <i class="fa-solid fa-chevron-down lang-chevron" aria-hidden="true"></i>
+                    </button>
+
+                    <ul class="lang-list" id="lang-list" role="list" hidden>
+                        <li>
+                            <button type="button" class="lang-btn" data-lang="es" lang="es" aria-pressed="true">
+                                <span class="lang-code" aria-hidden="true">ES</span> Español
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false">
+                                <span class="lang-code" aria-hidden="true">EN</span> English
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#" class="btn btn-ghost header-login" data-app-link="login" data-i18n="cta.login">Iniciar sesión</a>
+                <a href="#" class="btn btn-primary header-signup" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
 
                 <button
                     type="button"
-                    class="btn btn-primary"
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-controls="main-nav"
+                    aria-expanded="false"
+                    aria-label="Abrir menú"
                 >
-                    Crear cuenta gratis
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
                 </button>
+
             </div>
 
         </div>
@@ -75,339 +102,285 @@
 
     <main>
 
-        <section
-            id="hero"
-            class="hero section--cream"
-        >
+        <!-- ==========================================
+             Inicio (hero)
+             ========================================== -->
+        <section id="hero" class="hero section--cream">
             <div class="container hero-grid">
 
                 <div class="hero-copy">
 
                     <span class="badge">
-                        GESTIÓN FINANCIERA PARA ESTUDIANTES
+                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                        <span data-i18n="hero.badge">GESTIÓN FINANCIERA PARA ESTUDIANTES</span>
                     </span>
 
                     <h1>
-                        Entiende tu dinero.
-                        <span class="accent">
-                            Decide mejor.
-                        </span>
+                        <span data-i18n="hero.title">Entiende tu dinero.</span>
+                        <span class="accent" data-i18n="hero.accent">Decide mejor.</span>
                     </h1>
 
-                    <p class="lead">
-                        Organiza tus movimientos, planifica tus metas y toma el
-                        control de tu vida financiera de forma simple y segura,
-                        sin complicaciones bancarias.
+                    <p class="lead" data-i18n="hero.lead">
+                        Organiza tus movimientos, planifica tus metas y toma el control de tu vida financiera de forma simple y segura, sin complicaciones bancarias.
                     </p>
 
                     <div class="hero-actions">
-
-                        <button
-                            type="button"
-                            class="btn btn-primary btn-lg"
-                        >
-                            Crear cuenta gratis
-                        </button>
-
-                        <a
-                            href="#beneficios"
-                            class="btn btn-outline btn-lg"
-                        >
-                            Explorar funciones
-                        </a>
-
+                        <a href="#" class="btn btn-primary btn-lg" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
+                        <a href="#beneficios" class="btn btn-outline btn-lg" data-i18n="hero.explore">Explorar funciones</a>
                     </div>
 
-                    <ul
-                        class="checklist"
-                        role="list"
-                    >
-                        <li>
-                            Acceso desde tu navegador
-                        </li>
-
-                        <li>
-                            Registro simple y rápido
-                        </li>
-
-                        <li>
-                            Información siempre organizada
-                        </li>
+                    <ul class="checklist" role="list">
+                        <li data-i18n="hero.check1">Acceso desde tu navegador</li>
+                        <li data-i18n="hero.check2">Registro simple y rápido</li>
+                        <li data-i18n="hero.check3">Información siempre organizada</li>
                     </ul>
 
                 </div>
 
+                <!-- Tarjeta del panel: 1,540 − 900 − 320 = 320 disponible -->
                 <div class="hero-visual">
+                    <div class="dash" role="group" aria-label="Vista previa del panel de InvertU" data-i18n-attr="aria-label:dash.label">
 
-                    <img
-                        src="assets/img/hero-dashboard.png"
-                        alt="Vista previa del panel financiero de InvertU"
-                    >
+                        <div class="dash-top">
+                            <div class="dash-available">
+                                <span data-i18n="dash.available">Disponible</span>
+                                <strong>S/ 320.00</strong>
+                            </div>
 
+                            <ul class="dash-summary" role="list">
+                                <li class="dash-row dash-row--income">
+                                    <span data-i18n="dash.income">Ingresos</span>
+                                    <span>S/ 1,540</span>
+                                </li>
+                                <li class="dash-row dash-row--expense">
+                                    <span data-i18n="dash.expenses">Gastos</span>
+                                    <span>S/ 900</span>
+                                </li>
+                                <li class="dash-row dash-row--goals">
+                                    <span data-i18n="dash.goalsContrib">Aportes a metas</span>
+                                    <span>S/ 320</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dash-panel">
+
+                            <div class="dash-chart">
+                                <div class="chart-bars" role="img" aria-label="Gráfico de ingresos y gastos por semana" data-i18n-attr="aria-label:dash.chartLabel">
+                                    <div class="chart-col">
+                                        <div class="chart-bar chart-bar--w1"><span class="chart-fill chart-fill--w1"></span></div>
+                                        <small data-i18n="dash.week1">Sem 1</small>
+                                    </div>
+                                    <div class="chart-col">
+                                        <div class="chart-bar chart-bar--w2"><span class="chart-fill chart-fill--w2"></span></div>
+                                        <small data-i18n="dash.week2">Sem 2</small>
+                                    </div>
+                                    <div class="chart-col">
+                                        <div class="chart-bar chart-bar--w3"><span class="chart-fill chart-fill--w3"></span></div>
+                                        <small data-i18n="dash.week3">Sem 3</small>
+                                    </div>
+                                    <div class="chart-col">
+                                        <div class="chart-bar chart-bar--w4"><span class="chart-fill chart-fill--w4"></span></div>
+                                        <small data-i18n="dash.week4">Sem 4</small>
+                                    </div>
+                                </div>
+
+                                <p class="chart-title" data-i18n="dash.chartTitle">Ingresos y gastos por semana</p>
+
+                                <ul class="chart-legend" role="list" aria-hidden="true">
+                                    <li class="legend-income" data-i18n="dash.income">Ingresos</li>
+                                    <li class="legend-expense" data-i18n="dash.expenses">Gastos</li>
+                                </ul>
+                            </div>
+
+                            <div class="dash-side">
+                                <p class="dash-label" data-i18n="dash.activeGoals">Metas activas</p>
+
+                                <div class="dash-goal">
+                                    <div class="dash-goal-head">
+                                        <span data-i18n="dash.goalName">Laptop Nueva</span>
+                                        <strong>68%</strong>
+                                    </div>
+                                    <div class="progress"><span class="progress-fill"></span></div>
+                                </div>
+
+                                <p class="dash-label" data-i18n="dash.recent">Movimientos recientes</p>
+
+                                <div class="dash-move">
+                                    <span class="dash-move-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+                                    <span data-i18n="dash.lunch">Almuerzo</span>
+                                    <strong>-S/ 15.00</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <section
-            id="beneficios"
-            class="benefits section--muted"
-        >
+        <!-- ==========================================
+             Beneficios
+             ========================================== -->
+        <section id="beneficios" class="benefits section--muted">
             <div class="container">
 
-                <h2>
-                    Más claridad para tomar mejores decisiones
-                </h2>
+                <h2 data-i18n="benefits.title">Más claridad para tomar mejores decisiones</h2>
 
-                <p class="section-lead">
-                    Entendemos que manejar dinero como estudiante puede ser
-                    confuso. InvertU te da las herramientas para que sepas
-                    exactamente dónde estás parado.
+                <p class="section-lead" data-i18n="benefits.lead">
+                    Entendemos que manejar dinero como estudiante puede ser confuso. InvertU te da las herramientas para que sepas exactamente dónde estás parado.
                 </p>
 
-                <div
-                    id="benefits-grid"
-                    class="benefits-grid"
-                >
+                <div class="benefits-grid">
 
                     <article class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <img
-                                src="assets/img/icon-control.png"
-                                alt=""
-                            >
+                        <div class="benefit-icon benefit-icon--green">
+                            <i class="fa-solid fa-wallet" aria-hidden="true"></i>
                         </div>
-
-                        <h3>
-                            Control mensual
-                        </h3>
-
-                        <p>
-                            Conoce tu balance real al instante, separando lo que
-                            tienes de lo que ya gastaste.
-                        </p>
-
+                        <h3 data-i18n="benefits.controlTitle">Control mensual</h3>
+                        <p data-i18n="benefits.controlText">Conoce tu balance real al instante, separando lo que tienes de lo que ya gastaste.</p>
                     </article>
 
                     <article class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <img
-                                src="assets/img/icon-analysis.png"
-                                alt=""
-                            >
+                        <div class="benefit-icon benefit-icon--gold">
+                            <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
                         </div>
-
-                        <h3>
-                            Análisis de gastos
-                        </h3>
-
-                        <p>
-                            Categoriza automáticamente tus consumos para
-                            descubrir fugas de dinero.
-                        </p>
-
+                        <h3 data-i18n="benefits.analysisTitle">Análisis de gastos</h3>
+                        <p data-i18n="benefits.analysisText">Clasifica tus gastos por categoría y mira en gráficos a dónde se va tu dinero.</p>
                     </article>
 
                     <article class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <img
-                                src="assets/img/icon-goals.png"
-                                alt=""
-                            >
+                        <div class="benefit-icon benefit-icon--gray">
+                            <i class="fa-solid fa-flag" aria-hidden="true"></i>
                         </div>
-
-                        <h3>
-                            Planificación de metas
-                        </h3>
-
-                        <p>
-                            Define objetivos de ahorro y observa tu progreso de
-                            manera visual e inspiradora.
-                        </p>
-
+                        <h3 data-i18n="benefits.goalsTitle">Planificación de metas</h3>
+                        <p data-i18n="benefits.goalsText">Define objetivos de ahorro y observa tu progreso de manera visual e inspiradora.</p>
                     </article>
 
                     <article class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <img
-                                src="assets/img/icon-payments.png"
-                                alt=""
-                            >
+                        <div class="benefit-icon benefit-icon--red">
+                            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
                         </div>
-
-                        <h3>
-                            Seguimiento de pagos
-                        </h3>
-
-                        <p>
-                            Identifica tus suscripciones recurrentes para no
-                            pagar de más por descuidos.
-                        </p>
-
+                        <h3 data-i18n="benefits.paymentsTitle">Seguimiento de pagos</h3>
+                        <p data-i18n="benefits.paymentsText">Registra tus suscripciones y recibe un aviso por correo antes de cada cobro.</p>
                     </article>
 
                 </div>
 
-                <div
-                    class="stats-strip"
-                    role="list"
-                >
-
-                    <div
-                        class="stat"
-                        role="listitem"
-                    >
-                        <small>
-                            Disponible Hoy
-                        </small>
-
-                        <strong class="ok">
-                            S/ 320.00
-                        </strong>
+                <div class="stats-strip" role="list">
+                    <div class="stat" role="listitem">
+                        <small data-i18n="stats.available">Disponible del mes</small>
+                        <strong class="ok">S/ 320.00</strong>
                     </div>
-
-                    <div
-                        class="stat"
-                        role="listitem"
-                    >
-                        <small>
-                            Gastado (Mes)
-                        </small>
-
-                        <strong class="bad">
-                            S/ 900.00
-                        </strong>
+                    <div class="stat" role="listitem">
+                        <small data-i18n="stats.spent">Gastado (mes)</small>
+                        <strong class="bad">S/ 900.00</strong>
                     </div>
-
-                    <div
-                        class="stat"
-                        role="listitem"
-                    >
-                        <small>
-                            Meta Principal
-                        </small>
-
-                        <strong class="mid">
-                            68%
-                        </strong>
+                    <div class="stat" role="listitem">
+                        <small data-i18n="stats.goal">Meta principal</small>
+                        <strong class="mid">68%</strong>
                     </div>
-
-                    <div
-                        class="stat"
-                        role="listitem"
-                    >
-                        <small>
-                            Suscripciones
-                        </small>
-
-                        <strong class="ok">
-                            S/ 73.70
-                        </strong>
+                    <div class="stat" role="listitem">
+                        <small data-i18n="stats.subscriptions">Suscripciones</small>
+                        <strong class="ok">S/ 73.70</strong>
                     </div>
-
                 </div>
 
                 <div class="center">
-
-                    <button
-                        type="button"
-                        class="btn btn-primary btn-lg"
-                    >
-                        Comenzar a organizarme
-                    </button>
-
+                    <a href="#" class="btn btn-primary btn-lg" data-app-link="register" data-i18n="benefits.cta">Comenzar a organizarme</a>
                 </div>
 
             </div>
         </section>
 
-        <section
-            id="asistente"
-            class="assistant section--dark"
-        >
+        <!-- ==========================================
+             Asistente
+             ========================================== -->
+        <section id="asistente" class="assistant section--dark">
             <div class="container assistant-grid">
 
                 <div class="assistant-copy">
 
                     <span class="badge badge--gold">
-                        NUEVO ASISTENTE INTELIGENTE
+                        <i class="fa-solid fa-robot" aria-hidden="true"></i>
+                        <span data-i18n="assistant.badge">ASISTENTE INTELIGENTE · PREMIUM</span>
                     </span>
 
-                    <h2>
-                        Consulta tus finanzas usando palabras simples
-                    </h2>
+                    <h2 data-i18n="assistant.title">Consulta tus finanzas usando palabras simples</h2>
 
-                    <p>
-                        Habla con tu dinero. Pregúntale a InvertU sobre tus
-                        gastos o dile que registre un nuevo movimiento como si
-                        chatearas con un amigo.
+                    <p data-i18n="assistant.text">
+                        Pregúntale a InvertU por tus gastos, metas y suscripciones, y te responde con tus propios datos.
                     </p>
 
-                    <ul
-                        class="prompts"
-                        role="list"
-                    >
-
+                    <!-- Cada chip cambia la conversación del chat de la derecha -->
+                    <ul class="prompts" role="list">
                         <li>
-                            <button
-                                type="button"
-                                class="prompt"
-                            >
-                                "¿Cuánto gasté este mes en comida?"
-                                <span aria-hidden="true">
-                                    ›
-                                </span>
+                            <button type="button" class="prompt" data-chat="1" aria-pressed="true" aria-controls="chat-messages">
+                                <span data-i18n="assistant.q1">¿Cuánto gasté este mes en comida?</span>
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                             </button>
                         </li>
-
                         <li>
-                            <button
-                                type="button"
-                                class="prompt"
-                            >
-                                "Añade 15 soles en transporte de hoy"
-                                <span aria-hidden="true">
-                                    ›
-                                </span>
+                            <button type="button" class="prompt" data-chat="2" aria-pressed="false" aria-controls="chat-messages">
+                                <span data-i18n="assistant.q2">¿Cuánto me falta para mi meta?</span>
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                             </button>
                         </li>
-
                         <li>
-                            <button
-                                type="button"
-                                class="prompt"
-                            >
-                                "¿Me alcanza para salir el viernes?"
-                                <span aria-hidden="true">
-                                    ›
-                                </span>
+                            <button type="button" class="prompt" data-chat="3" aria-pressed="false" aria-controls="chat-messages">
+                                <span data-i18n="assistant.q3">¿Qué suscripciones me cobran esta semana?</span>
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                             </button>
                         </li>
-
                     </ul>
 
-                    <div id="assistant-response" class="assistant-response" hidden aria-live="polite">
-                        <p id="assistant-response-text"></p>
-                    </div>
-
-                    <button
-                        type="button"
-                        class="btn btn-gold btn-lg"
-                    >
-                        Conocer el asistente
-                    </button>
+                    <a href="#planes" class="btn btn-gold btn-lg" data-i18n="assistant.cta">Ver plan Premium</a>
 
                 </div>
 
                 <div class="assistant-visual">
 
+                    <div class="chat" role="group" aria-label="Ejemplo de conversación con el asistente" data-i18n-attr="aria-label:chat.label">
+
+                        <div class="chat-header">
+                            <span class="chat-avatar"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
+                            <div>
+                                <strong data-i18n="chat.name">Asistente InvertU</strong>
+                                <small data-i18n="chat.status">En línea</small>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages" id="chat-messages" aria-live="polite">
+                            <p class="chat-bubble chat-bubble--user" id="chat-question" data-i18n="assistant.q1">¿Cuánto gasté este mes en comida?</p>
+                            <div class="chat-bubble chat-bubble--bot chat-typing" id="chat-typing" aria-hidden="true" hidden>
+                                <span></span><span></span><span></span>
+                            </div>
+                            <p class="chat-bubble chat-bubble--bot" id="chat-answer" data-i18n="assistant.a1">Este mes llevas S/ 240.00 en comida, en 12 movimientos.</p>
+                        </div>
+
+                        <!-- Solo de adorno: el campo y el botón están desactivados -->
+                        <div class="chat-input">
+                            <input
+                                type="text"
+                                placeholder="Escribe un mensaje..."
+                                aria-label="Campo de mensaje (solo demostración)"
+                                data-i18n-attr="placeholder:chat.placeholder, aria-label:chat.inputLabel"
+                                disabled
+                            >
+                            <button type="button" aria-label="Enviar (solo demostración)" data-i18n-attr="aria-label:chat.send" disabled>
+                                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
                     <img
-                        src="assets/img/assistant.png"
-                        alt="Vista previa del asistente inteligente de InvertU"
+                        src="assets/img/mascot.png"
+                        alt="Mascota de InvertU saludando"
+                        class="mascot"
+                        data-i18n-attr="alt:chat.mascotAlt"
                     >
 
                 </div>
@@ -415,475 +388,303 @@
             </div>
         </section>
 
-        <section
-            id="testimonios"
-            class="testimonials section--muted"
-        >
+        <!-- ==========================================
+             Testimonios (carrusel; los circulitos los crea main.js)
+             ========================================== -->
+        <section id="testimonios" class="testimonials section--muted">
             <div class="container">
 
-                <h2>
-                    ¿Qué dicen los estudiantes sobre InvertU?
-                </h2>
+                <h2 data-i18n="testimonials.title">¿Qué dicen los estudiantes sobre InvertU?</h2>
 
-                <p class="section-lead">
-                    Miles de jóvenes ya están tomando el control de sus finanzas
-                    con nosotros.
-                </p>
+                <p class="section-lead" data-i18n="testimonials.lead">Estudiantes como tú que quieren ordenar su dinero.</p>
 
-                <div
-                    id="testimonials-track"
-                    class="testimonials-track"
-                >
+                <div class="testimonials-track" id="testimonials-track">
 
                     <article class="testimonial-card">
-
                         <div class="testimonial-user">
-
-                            <img
-                                src="assets/img/testimonial-andrea.png"
-                                alt="Andrea"
-                                class="testimonial-avatar"
-                            >
-
+                            <span class="testimonial-avatar avatar--mint" aria-hidden="true">A</span>
                             <div>
-                                <strong>
-                                    Andrea
-                                </strong>
-
-                                <span>
-                                    Estudiante de Economía
-                                </span>
+                                <strong>Andrea</strong>
+                                <span data-i18n="testimonials.andreaRole">Estudiante de Economía</span>
                             </div>
-
                         </div>
-
-                        <p>
-                            "Por fin entiendo a dónde se va mi dinero cada mes.
-                            El asistente me ayuda a mantener mi registro al día
-                            sin esfuerzo."
-                        </p>
-
+                        <p data-i18n="testimonials.andreaText">"Por fin entiendo a dónde se va mi dinero cada mes. Le pregunto al asistente cuánto llevo gastado y me responde al toque."</p>
                     </article>
 
                     <article class="testimonial-card">
-
                         <div class="testimonial-user">
-
-                            <img
-                                src="assets/img/testimonial-ricardo.png"
-                                alt="Ricardo"
-                                class="testimonial-avatar"
-                            >
-
+                            <span class="testimonial-avatar avatar--gold" aria-hidden="true">R</span>
                             <div>
-                                <strong>
-                                    Ricardo
-                                </strong>
-
-                                <span>
-                                    Estudiante de Ingeniería
-                                </span>
+                                <strong>Ricardo</strong>
+                                <span data-i18n="testimonials.ricardoRole">Estudiante de Ingeniería</span>
                             </div>
-
                         </div>
-
-                        <p>
-                            "Ahorrar para mi nueva laptop parecía imposible
-                            hasta que empecé a usar las metas de InvertU.
-                            ¡Ver el progreso me motiva a seguir!"
-                        </p>
-
+                        <p data-i18n="testimonials.ricardoText">"Ahorrar para mi nueva laptop parecía imposible hasta que empecé a usar las metas de InvertU. ¡Ver el progreso me motiva a seguir!"</p>
                     </article>
 
                     <article class="testimonial-card">
-
                         <div class="testimonial-user">
-
-                            <img
-                                src="assets/img/testimonial-lucia.png"
-                                alt="Lucía"
-                                class="testimonial-avatar"
-                            >
-
+                            <span class="testimonial-avatar avatar--gray" aria-hidden="true">L</span>
                             <div>
-                                <strong>
-                                    Lucía
-                                </strong>
-
-                                <span>
-                                    Estudiante de Diseño
-                                </span>
+                                <strong>Lucía</strong>
+                                <span data-i18n="testimonials.luciaRole">Estudiante de Diseño</span>
                             </div>
-
                         </div>
+                        <p data-i18n="testimonials.luciaText">"Me encanta cómo puedo ver mis gastos diarios de forma tan clara. Es súper práctico y fácil de usar para organizar mi presupuesto sin complicaciones."</p>
+                    </article>
 
-                        <p>
-                            "Me encanta cómo puedo ver mis gastos diarios de
-                            forma tan clara. Es súper práctico y fácil de usar
-                            para organizar mi presupuesto sin complicaciones."
-                        </p>
+                    <article class="testimonial-card">
+                        <div class="testimonial-user">
+                            <span class="testimonial-avatar avatar--mint" aria-hidden="true">D</span>
+                            <div>
+                                <strong>Diego</strong>
+                                <span data-i18n="testimonials.diegoRole">Estudiante de Derecho</span>
+                            </div>
+                        </div>
+                        <p data-i18n="testimonials.diegoText">"Antes me cobraban suscripciones que ni recordaba. Ahora me llega un correo unos días antes y decido si la sigo pagando."</p>
+                    </article>
 
+                    <article class="testimonial-card">
+                        <div class="testimonial-user">
+                            <span class="testimonial-avatar avatar--gold" aria-hidden="true">C</span>
+                            <div>
+                                <strong>Camila</strong>
+                                <span data-i18n="testimonials.camilaRole">Estudiante de Psicología</span>
+                            </div>
+                        </div>
+                        <p data-i18n="testimonials.camilaText">"En el calendario veo qué cobros y aportes se vienen en el mes. Ya no me agarran por sorpresa."</p>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-user">
+                            <span class="testimonial-avatar avatar--gray" aria-hidden="true">M</span>
+                            <div>
+                                <strong>Mateo</strong>
+                                <span data-i18n="testimonials.mateoRole">Estudiante de Administración</span>
+                            </div>
+                        </div>
+                        <p data-i18n="testimonials.mateoText">"Subo la foto de mi boleta y el movimiento se llena solo. Yo solo reviso y confirmo."</p>
                     </article>
 
                 </div>
 
+                <div class="testimonials-dots" id="testimonials-dots" role="group" aria-label="Elegir grupo de testimonios" data-i18n-attr="aria-label:testimonials.dotsLabel"></div>
+
             </div>
         </section>
 
-        <section
-            id="planes"
-            class="pricing section--cream"
-        >
+        <!-- ==========================================
+             Planes
+             ========================================== -->
+        <section id="planes" class="pricing section--cream">
             <div class="container">
 
-                <h2>
-                    Elige tu plan
-                </h2>
+                <h2 data-i18n="plans.title">Elige tu plan</h2>
 
-                <p class="section-lead">
-                    Empieza gratis, mejora cuando lo necesites. Los precios y
-                    beneficios son referenciales.
-                </p>
+                <p class="section-lead" data-i18n="plans.lead">Empieza gratis, mejora cuando lo necesites. Los precios y beneficios son referenciales.</p>
 
-                <div
-                    id="pricing-grid"
-                    class="pricing-grid"
-                >
+                <div class="pricing-grid">
 
                     <article class="price-card">
-
-                        <h3>
-                            Plan Gratuito
-                        </h3>
-
-                        <div class="price">
-                            S/ 0
-                            <span>
-                                /mes
-                            </span>
-                        </div>
-
+                        <h3 data-i18n="plans.freeName">Plan Gratuito</h3>
+                        <div class="price">S/ 0 <span data-i18n="plans.perMonth">/mes</span></div>
                         <ul>
-                            <li>
-                                Registro manual de movimientos
-                            </li>
-
-                            <li>
-                                Categorías básicas y dashboard
-                            </li>
-
-                            <li>
-                                1 Meta de ahorro activa
-                            </li>
-
-                            <li>
-                                Asistente inteligente
-                                (consultas básicas)
-                            </li>
+                            <li data-i18n="plans.free1">Registro manual de ingresos y gastos</li>
+                            <li data-i18n="plans.free2">Resumen y gráficos del mes</li>
+                            <li data-i18n="plans.free3">Hasta 3 metas de ahorro activas</li>
+                            <li data-i18n="plans.free4">Recordatorios por correo en hasta 3 suscripciones</li>
                         </ul>
-
-                        <button
-                            type="button"
-                            class="btn btn-outline"
-                        >
-                            Crear cuenta gratis
-                        </button>
-
+                        <a href="#" class="btn btn-outline" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
                     </article>
 
                     <article class="price-card price-card-featured">
-
-                        <span class="recommended">
-                            RECOMENDADO
-                        </span>
-
-                        <h3>
-                            Plan Premium
-                        </h3>
-
-                        <div class="price">
-                            S/ 7.90
-                            <span>
-                                /mes
-                            </span>
-                        </div>
-
+                        <span class="recommended" data-i18n="plans.recommended">RECOMENDADO</span>
+                        <h3 data-i18n="plans.premiumName">Plan Premium</h3>
+                        <div class="price">S/ 7.90 <span data-i18n="plans.perMonth">/mes</span></div>
+                        <p class="price-intro" data-i18n="plans.premiumIntro">Todo lo del plan gratuito, más:</p>
                         <ul>
-                            <li>
-                                Metas de ahorro ilimitadas
-                            </li>
-
-                            <li>
-                                Detección asistida de suscripciones
-                            </li>
-
-                            <li>
-                                Simulaciones y proyecciones
-                            </li>
-
-                            <li>
-                                Reportes avanzados e historial completo
-                            </li>
+                            <li data-i18n="plans.premium1">Metas y recordatorios sin límite</li>
+                            <li data-i18n="plans.premium2">Asistente financiero</li>
+                            <li data-i18n="plans.premium3">Registro con IA desde la foto de tu comprobante</li>
+                            <li data-i18n="plans.premium4">Calendario financiero</li>
+                            <li data-i18n="plans.premium5">Proyección de metas y alerta de saldo insuficiente</li>
                         </ul>
-
-                        <button
-                            type="button"
-                            class="btn btn-primary"
-                        >
-                            Elegir Premium
-                        </button>
-
+                        <a href="#" class="btn btn-white" data-app-link="register" data-i18n="plans.premiumCta">Empezar con Premium</a>
                     </article>
 
                 </div>
 
+                <p class="pricing-note" data-i18n="plans.note">Creas tu cuenta gratis y activas Premium desde tu perfil.</p>
+
             </div>
         </section>
 
-        <section
-            id="ayuda"
-            class="trust section--muted"
-        >
+        <!-- ==========================================
+             Ayuda
+             ========================================== -->
+        <section id="ayuda" class="trust section--muted">
             <div class="container">
 
-                <h2>
-                    Tu información permanece bajo tu control
-                </h2>
+                <h2 data-i18n="help.title">Tu información permanece bajo tu control</h2>
 
                 <div class="trust-grid">
 
                     <article class="trust-card">
-
-                        <img
-                            src="assets/img/security-bank.png"
-                            alt=""
-                            class="trust-icon"
-                        >
-
-                        <h3>
-                            Sin credenciales bancarias
-                        </h3>
-
-                        <p>
-                            Nunca te pediremos tu clave de internet, token o PIN
-                            del banco.
-                        </p>
-
+                        <i class="fa-solid fa-lock trust-icon" aria-hidden="true"></i>
+                        <h3 data-i18n="help.bankTitle">Sin credenciales bancarias</h3>
+                        <p data-i18n="help.bankText">Nunca te pediremos tu clave de internet, token o PIN del banco.</p>
                     </article>
 
                     <article class="trust-card">
-
-                        <img
-                            src="assets/img/security-control.png"
-                            alt=""
-                            class="trust-icon"
-                        >
-
-                        <h3>
-                            Tú confirmas todo
-                        </h3>
-
-                        <p>
-                            InvertU sugiere, tú decides. Tienes el control total
-                            de los registros.
-                        </p>
-
+                        <i class="fa-solid fa-shield-halved trust-icon" aria-hidden="true"></i>
+                        <h3 data-i18n="help.controlTitle">Tú confirmas todo</h3>
+                        <p data-i18n="help.controlText">InvertU sugiere, tú decides. Tienes el control total de los registros.</p>
                     </article>
 
                     <article class="trust-card">
-
-                        <img
-                            src="assets/img/security-web.png"
-                            alt=""
-                            class="trust-icon"
-                        >
-
-                        <h3>
-                            Plataforma Web
-                        </h3>
-
-                        <p>
-                            Accede desde cualquier navegador sin descargar apps
-                            pesadas.
-                        </p>
-
+                        <i class="fa-solid fa-laptop trust-icon" aria-hidden="true"></i>
+                        <h3 data-i18n="help.webTitle">Plataforma web</h3>
+                        <p data-i18n="help.webText">Accede desde cualquier navegador sin descargar apps pesadas.</p>
                     </article>
 
                 </div>
 
+                <!-- details/summary ya funcionan con teclado (Tab + Enter/Espacio) -->
                 <div class="faq">
 
-                    <h3>
-                        Preguntas Frecuentes
-                    </h3>
+                    <h3 data-i18n="faq.title">Preguntas frecuentes</h3>
 
-                    <div id="faq-list">
+                    <details>
+                        <summary data-i18n="faq.q1">¿Se conecta automáticamente a mi banco?</summary>
+                        <p data-i18n="faq.a1">No. Tú registras tus movimientos, a mano o con la foto de un comprobante (Premium).</p>
+                    </details>
 
-                        <details>
-                            <summary>
-                                ¿Se conecta automáticamente a mi banco?
-                            </summary>
+                    <details>
+                        <summary data-i18n="faq.q2">¿Necesito un correo de mi universidad para registrarme?</summary>
+                        <p data-i18n="faq.a2">No. Puedes crear tu cuenta con cualquier correo.</p>
+                    </details>
 
-                            <p>
-                                InvertU no solicita credenciales bancarias.
-                            </p>
-                        </details>
+                    <details>
+                        <summary data-i18n="faq.q3">¿Qué puedo hacer gratis y qué es Premium?</summary>
+                        <p data-i18n="faq.a3">Gratis registras movimientos, creas hasta 3 metas y recibes recordatorios en hasta 3 suscripciones. Premium quita esos límites y suma el asistente, el registro con foto y el calendario.</p>
+                    </details>
 
-                        <details>
-                            <summary>
-                                ¿Por qué piden números de tarjeta?
-                            </summary>
-
-                            <p>
-                                Esta información se utilizará según las
-                                condiciones del servicio.
-                            </p>
-                        </details>
-
-                    </div>
+                    <details>
+                        <summary data-i18n="faq.q4">¿El asistente puede modificar mis datos?</summary>
+                        <p data-i18n="faq.a4">No. Solo responde con lo que tú registraste; no crea, cambia ni borra nada.</p>
+                    </details>
 
                 </div>
 
-                <p class="center">
-
-                    <a
-                        href="#contacto"
-                        class="support-link"
-                    >
-                        Contactar soporte
-                    </a>
-
+                <p class="help-contact">
+                    <i class="fa-solid fa-headset" aria-hidden="true"></i>
+                    <span data-i18n="help.contact">¿Tienes dudas? Escríbenos a</span>
+                    <a href="mailto:contacto@invertu.pe">contacto@invertu.pe</a>
                 </p>
 
             </div>
         </section>
 
-        <section class="final-cta section--green">
+        <!-- ==========================================
+             Sección final
+             ========================================== -->
+        <section class="final-cta">
+            <div class="container final-grid">
 
-            <div class="container center">
+                <div class="final-copy">
+                    <h2 data-i18n="final.title">Empieza a tomar decisiones con información más clara</h2>
 
-                <h2>
-                    Empieza a tomar decisiones con información más clara
-                </h2>
+                    <div class="cta-actions">
+                        <a href="#" class="btn btn-white btn-lg" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
+                        <a href="#" class="btn btn-outline-white btn-lg" data-app-link="login" data-i18n="cta.login">Iniciar sesión</a>
+                    </div>
+                </div>
 
-                <div class="cta-actions">
-
-                    <button
-                        type="button"
-                        class="btn btn-white btn-lg"
+                <div class="final-visual">
+                    <img
+                        src="assets/img/cta-app.webp"
+                        alt="Laptop con la app de InvertU abierta en la pantalla de movimientos"
+                        data-i18n-attr="alt:final.imageAlt"
+                        loading="lazy"
                     >
-                        Crear cuenta gratis
-                    </button>
-
-                    <button
-                        type="button"
-                        class="btn btn-outline-white btn-lg"
-                    >
-                        Iniciar sesión
-                    </button>
-
                 </div>
 
             </div>
-
         </section>
 
     </main>
 
-    <footer
-        id="contacto"
-        class="site-footer"
-    >
-
+    <!-- ==========================================
+         Footer
+         ========================================== -->
+    <footer id="contacto" class="site-footer">
         <div class="container footer">
 
             <div class="footer-top">
 
-                <a
-                    href="#inicio"
-                    class="footer-brand"
-                >
-                    InvertU
-                </a>
+                <div class="footer-info">
+                    <a href="#inicio" class="footer-brand">InvertU</a>
 
-                <nav
-                    class="footer-nav"
-                    aria-label="Pie de página"
-                >
-                    <a href="#inicio">
-                        Inicio
-                    </a>
+                    <p class="footer-contact">
+                        <span class="visually-hidden" data-i18n="footer.contact">Contacto</span>
+                        <a href="mailto:contacto@invertu.pe">
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            contacto@invertu.pe
+                        </a>
+                        <span>
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <span data-i18n="footer.city">Lima, Perú</span>
+                        </span>
+                    </p>
+                </div>
 
-                    <a href="#beneficios">
-                        Beneficios
-                    </a>
-
-                    <a href="#asistente">
-                        Asistente
-                    </a>
-
-                    <a href="#planes">
-                        Planes
-                    </a>
-
-                    <a href="#ayuda">
-                        Ayuda
-                    </a>
-
-                    <a href="#contacto">
-                        Contacto
-                    </a>
-
-                    <a href="#">
-                        T&amp;C
-                    </a>
-
-                    <a href="#">
-                        Privacy
-                    </a>
+                <nav class="footer-nav" aria-label="Pie de página" data-i18n-attr="aria-label:footer.navLabel">
+                    <a href="#inicio" data-i18n="nav.home">Inicio</a>
+                    <a href="#beneficios" data-i18n="nav.benefits">Beneficios</a>
+                    <a href="#asistente" data-i18n="nav.assistant">Asistente</a>
+                    <a href="#planes" data-i18n="nav.plans">Planes</a>
+                    <a href="#ayuda" data-i18n="nav.help">Ayuda</a>
                 </nav>
 
             </div>
 
             <div class="footer-bottom">
 
-                <small>
-                    © 2026 InvertU. Empoderando el futuro financiero estudiantil.
-                </small>
+                <small data-i18n="footer.copy">© 2026 InvertU. Empoderando el futuro financiero estudiantil.</small>
 
-                <div class="language-control">
-                    <span class="language-label">Idioma</span>
-                    <select id="language-select" aria-label="Idioma">
-                        <option class="language-option-es" value="es">Español</option>
-                        <option class="language-option-en" value="en">English</option>
-                    </select>
+                <div class="footer-legal">
+                    <a href="#" data-app-link="terms" data-i18n="footer.terms">Términos y condiciones</a>
+                    <a href="#" data-app-link="privacy" data-i18n="footer.privacy">Política de privacidad</a>
                 </div>
+
+                <!-- Cuentas de ejemplo: por ahora llevan al registro de la app -->
+                <ul class="footer-social" role="list" aria-label="Redes sociales" data-i18n-attr="aria-label:footer.social">
+                    <li>
+                        <a href="#" data-app-link="register" aria-label="InvertU en Instagram" data-i18n-attr="aria-label:footer.instagram">
+                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-app-link="register" aria-label="InvertU en TikTok" data-i18n-attr="aria-label:footer.tiktok">
+                            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-app-link="register" aria-label="InvertU en LinkedIn" data-i18n-attr="aria-label:footer.linkedin">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
 
             </div>
 
         </div>
-
     </footer>
 
     <div id="status-message" class="status-message" role="status" aria-live="polite"></div>
 
-    <div id="support-modal" class="support-modal" aria-hidden="true">
-        <div class="support-dialog" role="dialog" aria-modal="true" aria-labelledby="support-title">
-            <button id="support-close" class="support-close" type="button" aria-label="Cerrar">×</button>
-            <h2 id="support-title">Contactar soporte</h2>
-            <form id="support-form">
-                <label for="support-name">Nombre</label>
-                <input id="support-name" name="name" type="text" required>
-                <label for="support-email">Correo</label>
-                <input id="support-email" name="email" type="email" required>
-                <label for="support-message">Mensaje</label>
-                <textarea id="support-message" name="message" rows="4" required></textarea>
-                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-                <p id="support-status" class="support-status"></p>
-            </form>
-        </div>
-    </div>
-
+    <script src="assets/js/lang-es.js"></script>
+    <script src="assets/js/lang-en.js"></script>
     <script src="assets/js/main.js"></script>
 
 </body>
