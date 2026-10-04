@@ -1,12 +1,3 @@
-// ==========================================
-// JavaScript de la landing de Invertu
-//
-// Instrucciones para el equipo:
-// - Los textos están en lang-es.js y lang-en.js (se cargan antes que este archivo)
-// - Cada funcionalidad en su propio bloque con un comentario arriba
-// - Nombres de variables y funciones en camelCase
-// ==========================================
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================
@@ -28,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const storageKey = "invertu-language";
     const statusMessage = document.getElementById("status-message");
 
-    // Si la persona pidió "reducir movimiento" en su sistema, se apagan las animaciones
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let currentLanguage = "es";
@@ -70,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // Idiomas (data-i18n y data-i18n-attr)
+    // Idiomas
     // ==========================================
     const langButtons = document.querySelectorAll(".lang-btn");
     const langMenu = document.getElementById("lang-menu");
@@ -88,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
             element.textContent = t(element.dataset.i18n);
         });
 
-        // Formato: data-i18n-attr="atributo:clave, otroAtributo:otraClave"
         document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
             element.dataset.i18nAttr.split(",").forEach((pair) => {
                 const [attribute, key] = pair.split(":").map((part) => part.trim());
@@ -108,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             localStorage.setItem(storageKey, language);
         } catch (error) {
-            // Sin localStorage (modo privado): el idioma no se recuerda, pero la página funciona
+            // Sin localStorage el idioma no se recuerda
         }
     }
 
@@ -128,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Flechas arriba/abajo dentro del menú y Escape para cerrarlo
     langList.addEventListener("keydown", (event) => {
         const options = Array.from(langButtons);
         const index = options.indexOf(document.activeElement);
@@ -145,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Cerrar al hacer clic fuera o al salir con Tab
     document.addEventListener("click", (event) => {
         if (!langList.hidden && !langMenu.contains(event.target)) setLangMenu(false);
     });
@@ -162,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     const menuToggle = document.getElementById("menu-toggle");
     const mainNav = document.getElementById("main-nav");
+    const mobileQuery = window.matchMedia("(max-width: 1100px)");
 
     function updateMenuLabel() {
         const isOpen = mainNav.classList.contains("open");
@@ -173,6 +161,17 @@ document.addEventListener("DOMContentLoaded", () => {
         menuToggle.setAttribute("aria-expanded", String(isOpen));
         updateMenuLabel();
     }
+
+    function placeLangMenu() {
+        if (mobileQuery.matches) {
+            mainNav.appendChild(langMenu);
+        } else {
+            menuToggle.before(langMenu);
+        }
+    }
+
+    placeLangMenu();
+    mobileQuery.addEventListener("change", placeLangMenu);
 
     menuToggle.addEventListener("click", () => {
         setMenu(!mainNav.classList.contains("open"));
@@ -190,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // Enlace activo del menú según la sección visible
+    // Enlace activo del menú
     // ==========================================
     const mainNavLinks = mainNav.querySelectorAll("a");
 
@@ -207,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
 
     // ==========================================
-    // Asistente: cada chip cambia el chat
+    // Asistente
     // ==========================================
     const prompts = document.querySelectorAll(".prompt");
     const chatQuestion = document.getElementById("chat-question");
@@ -217,7 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let typingTimer;
 
-    // Reinicia una animación CSS quitando y volviendo a poner su clase
     function restartAnimation(element, className) {
         element.classList.remove(className);
         void element.offsetWidth;
@@ -241,7 +239,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!prefersReducedMotion) restartAnimation(mascot, "is-bouncing");
 
-            // Primero los puntitos de "escribiendo…", luego la respuesta
             window.clearTimeout(typingTimer);
             chatAnswer.hidden = true;
             chatTyping.hidden = false;
@@ -256,14 +253,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // Testimonios: carrusel con circulitos creados según cuántas tarjetas caben
+    // Testimonios
     // ==========================================
+    const testimonials = document.getElementById("testimonios");
     const track = document.getElementById("testimonials-track");
     const dotsContainer = document.getElementById("testimonials-dots");
     const cards = track.querySelectorAll(".testimonial-card");
 
+    const AUTOPLAY_DELAY = 6000;
+    const SWIPE_THRESHOLD = 40;
+
     let perView = 1;
     let pageCount = 1;
+    let autoplayTimer;
+    let touchStartX = 0;
 
     function getStep() {
         const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
@@ -277,7 +280,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function goToPage(page) {
-        track.scrollTo({ left: page * perView * getStep(), behavior: "smooth" });
+        const target = (page + pageCount) % pageCount;
+        track.scrollTo({
+            left: target * perView * getStep(),
+            behavior: prefersReducedMotion ? "auto" : "smooth"
+        });
+        return target;
     }
 
     function updateDots() {
@@ -302,20 +310,60 @@ document.addEventListener("DOMContentLoaded", () => {
             dot.type = "button";
             dot.className = "dot";
             dot.setAttribute("aria-label", t("testimonials.dot").replace("{n}", index + 1).replace("{total}", pageCount));
-            dot.addEventListener("click", () => goToPage(index));
+            dot.addEventListener("click", () => {
+                goToPage(index);
+                startAutoplay();
+            });
             dotsContainer.appendChild(dot);
         }
 
         updateDots();
     }
 
-    // Flechas izquierda/derecha para moverse entre circulitos
+    function stopAutoplay() {
+        window.clearInterval(autoplayTimer);
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        if (prefersReducedMotion) return;
+        autoplayTimer = window.setInterval(() => {
+            if (pageCount > 1) goToPage(getCurrentPage() + 1);
+        }, AUTOPLAY_DELAY);
+    }
+
+    testimonials.addEventListener("pointerenter", (event) => {
+        if (event.pointerType === "mouse") stopAutoplay();
+    });
+
+    testimonials.addEventListener("pointerleave", (event) => {
+        if (event.pointerType === "mouse") startAutoplay();
+    });
+
+    testimonials.addEventListener("focusin", stopAutoplay);
+
+    testimonials.addEventListener("focusout", (event) => {
+        if (!testimonials.contains(event.relatedTarget)) startAutoplay();
+    });
+
+    track.addEventListener("touchstart", (event) => {
+        stopAutoplay();
+        touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener("touchend", (event) => {
+        const deltaX = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+            goToPage(getCurrentPage() + (deltaX < 0 ? 1 : -1));
+        }
+        startAutoplay();
+    });
+
     dotsContainer.addEventListener("keydown", (event) => {
         if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
         event.preventDefault();
         const direction = event.key === "ArrowRight" ? 1 : -1;
-        const next = (getCurrentPage() + direction + pageCount) % pageCount;
-        goToPage(next);
+        const next = goToPage(getCurrentPage() + direction);
         dotsContainer.querySelectorAll("button")[next].focus();
     });
 
@@ -332,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // Animaciones al hacer scroll (las tarjetas aparecen subiendo)
+    // Animaciones al hacer scroll
     // ==========================================
     if (!prefersReducedMotion) {
         const revealItems = document.querySelectorAll(
@@ -348,7 +396,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { threshold: 0.15 });
 
         revealItems.forEach((item) => {
-            // Las tarjetas hermanas aparecen una detrás de otra
             const siblings = Array.from(item.parentElement.children).filter((child) => child.matches(".benefit-card, .price-card, .trust-card"));
             const order = siblings.indexOf(item);
             if (order > 0) item.style.transitionDelay = `${order * 0.1}s`;
@@ -356,7 +403,6 @@ document.addEventListener("DOMContentLoaded", () => {
             item.classList.add("reveal");
             revealObserver.observe(item);
 
-            // Al terminar se quitan las clases para que vuelvan sus efectos de hover
             item.addEventListener("transitionend", function cleanUp(event) {
                 if (event.target !== item || event.propertyName !== "opacity" || !item.classList.contains("is-visible")) return;
                 item.classList.remove("reveal", "is-visible");
@@ -365,7 +411,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // Barras del gráfico y barra de la meta se llenan al aparecer
         const dash = document.querySelector(".dash");
         dash.classList.add("will-animate");
 
@@ -377,7 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // Idioma inicial (el guardado o español)
+    // Idioma inicial
     // ==========================================
     let savedLanguage = null;
 
@@ -388,4 +433,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     applyLanguage(savedLanguage || "es");
+    startAutoplay();
 });

@@ -18,7 +18,6 @@
         rel="stylesheet"
     >
 
-    <!-- Íconos (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="icon" href="assets/img/favicon.png">
@@ -50,7 +49,9 @@
 
             <div class="header-ctas">
 
-                <!-- Selector de idioma: el mundito abre el menú ES / EN -->
+                <a href="#" class="btn btn-ghost header-login" data-app-link="login" data-i18n="cta.login">Iniciar sesión</a>
+                <a href="#" class="btn btn-primary header-signup" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
+
                 <div class="lang-menu" id="lang-menu">
                     <button
                         type="button"
@@ -80,9 +81,6 @@
                         </li>
                     </ul>
                 </div>
-
-                <a href="#" class="btn btn-ghost header-login" data-app-link="login" data-i18n="cta.login">Iniciar sesión</a>
-                <a href="#" class="btn btn-primary header-signup" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
 
                 <button
                     type="button"
@@ -116,8 +114,8 @@
                     </span>
 
                     <h1>
-                        <span data-i18n="hero.title">Entiende tu dinero.</span>
-                        <span class="accent" data-i18n="hero.accent">Decide mejor.</span>
+                        <span data-i18n="hero.title">Toma el control de tu</span>
+                        <span class="accent" data-i18n="hero.accent">futuro financiero</span>
                     </h1>
 
                     <p class="lead" data-i18n="hero.lead">
@@ -137,7 +135,6 @@
 
                 </div>
 
-                <!-- Tarjeta del panel: 1,540 − 900 − 320 = 320 disponible -->
                 <div class="hero-visual">
                     <div class="dash" role="group" aria-label="Vista previa del panel de InvertU" data-i18n-attr="aria-label:dash.label">
 
@@ -314,7 +311,6 @@
                         Pregúntale a InvertU por tus gastos, metas y suscripciones, y te responde con tus propios datos.
                     </p>
 
-                    <!-- Cada chip cambia la conversación del chat de la derecha -->
                     <ul class="prompts" role="list">
                         <li>
                             <button type="button" class="prompt" data-chat="1" aria-pressed="true" aria-controls="chat-messages">
@@ -360,7 +356,6 @@
                             <p class="chat-bubble chat-bubble--bot" id="chat-answer" data-i18n="assistant.a1">Este mes llevas S/ 240.00 en comida, en 12 movimientos.</p>
                         </div>
 
-                        <!-- Solo de adorno: el campo y el botón están desactivados -->
                         <div class="chat-input">
                             <input
                                 type="text"
@@ -389,7 +384,7 @@
         </section>
 
         <!-- ==========================================
-             Testimonios (carrusel; los circulitos los crea main.js)
+             Testimonios
              ========================================== -->
         <section id="testimonios" class="testimonials section--muted">
             <div class="container">
@@ -500,7 +495,7 @@
                     <article class="price-card price-card-featured">
                         <span class="recommended" data-i18n="plans.recommended">RECOMENDADO</span>
                         <h3 data-i18n="plans.premiumName">Plan Premium</h3>
-                        <div class="price">S/ 7.90 <span data-i18n="plans.perMonth">/mes</span></div>
+                        <div class="price">S/ 9.90 <span data-i18n="plans.perMonth">/mes</span></div>
                         <p class="price-intro" data-i18n="plans.premiumIntro">Todo lo del plan gratuito, más:</p>
                         <ul>
                             <li data-i18n="plans.premium1">Metas y recordatorios sin límite</li>
@@ -549,7 +544,6 @@
 
                 </div>
 
-                <!-- details/summary ya funcionan con teclado (Tab + Enter/Espacio) -->
                 <div class="faq">
 
                     <h3 data-i18n="faq.title">Preguntas frecuentes</h3>
@@ -579,7 +573,7 @@
                 <p class="help-contact">
                     <i class="fa-solid fa-headset" aria-hidden="true"></i>
                     <span data-i18n="help.contact">¿Tienes dudas? Escríbenos a</span>
-                    <a href="mailto:contacto@invertu.pe">contacto@invertu.pe</a>
+                    <a href="mailto:invertuoficial@gmail.com">invertuoficial@gmail.com</a>
                 </p>
 
             </div>
@@ -627,9 +621,9 @@
 
                     <p class="footer-contact">
                         <span class="visually-hidden" data-i18n="footer.contact">Contacto</span>
-                        <a href="mailto:contacto@invertu.pe">
+                        <a href="mailto:invertuoficial@gmail.com">
                             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            contacto@invertu.pe
+                            invertuoficial@gmail.com
                         </a>
                         <span>
                             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -657,7 +651,6 @@
                     <a href="#" data-app-link="privacy" data-i18n="footer.privacy">Política de privacidad</a>
                 </div>
 
-                <!-- Cuentas de ejemplo: por ahora llevan al registro de la app -->
                 <ul class="footer-social" role="list" aria-label="Redes sociales" data-i18n-attr="aria-label:footer.social">
                     <li>
                         <a href="#" data-app-link="register" aria-label="InvertU en Instagram" data-i18n-attr="aria-label:footer.instagram">

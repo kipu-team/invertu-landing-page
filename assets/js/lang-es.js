@@ -31,8 +31,8 @@ window.invertuTexts.es = {
 
     // Inicio
     "hero.badge": "GESTIÓN FINANCIERA PARA ESTUDIANTES",
-    "hero.title": "Entiende tu dinero.",
-    "hero.accent": "Decide mejor.",
+    "hero.title": "Toma el control de tu",
+    "hero.accent": "futuro financiero",
     "hero.lead": "Organiza tus movimientos, planifica tus metas y toma el control de tu vida financiera de forma simple y segura, sin complicaciones bancarias.",
     "hero.explore": "Explorar funciones",
     "hero.check1": "Acceso desde tu navegador",

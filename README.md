@@ -1,13 +1,33 @@
 # INVERTU LANDING PAGE
 
-## Descripción de cada archivo
+Landing page de InvertU, plataforma web de gestión financiera para estudiantes universitarios.
+
+## Estructura del proyecto
+
+```
+invertu-landing-page/
+├── index.html
+├── README.md
+└── assets/
+    ├── css/
+    │   └── styles.css
+    ├── img/
+    └── js/
+        ├── lang-es.js
+        ├── lang-en.js
+        └── main.js
+```
 
 | Archivo | Propósito |
 |---------|-----------|
-| `index.html` | Estructura principal de la landing page |
+| `index.html` | Estructura de la landing page |
 | `assets/css/styles.css` | Hoja de estilos única del proyecto |
-| `assets/js/main.js` | Script único con toda la interactividad |
-| `assets/img/` | Recursos gráficos locales (logos, banners, etc.) |
+| `assets/js/lang-es.js` | Textos en español (claves `data-i18n`) |
+| `assets/js/lang-en.js` | Textos en inglés (mismas claves que `lang-es.js`) |
+| `assets/js/main.js` | Interactividad: idiomas, menú móvil, asistente, carrusel de testimonios y animaciones |
+| `assets/img/` | Recursos gráficos locales (logo, mascota, imágenes) |
+
+Los scripts se cargan en este orden al final de `index.html`: `lang-es.js`, `lang-en.js` y `main.js`.
 
 ---
 
@@ -17,6 +37,18 @@
 2. Abre el archivo `index.html` directamente en tu navegador.
 
 > No requiere servidor local ni proceso de build.
+
+---
+
+## Publicación en GitHub Pages
+
+1. Sube los cambios a la rama `main` del repositorio en GitHub.
+2. En el repositorio, entra a **Settings → Pages**.
+3. En **Build and deployment**, elige **Source: Deploy from a branch**.
+4. Selecciona la rama `main` y la carpeta `/ (root)`, y pulsa **Save**.
+5. Después de unos minutos, la página queda publicada en `https://<usuario>.github.io/<repositorio>/`.
+
+Cada nuevo push a `main` actualiza la página publicada automáticamente.
 
 ---
 
@@ -30,6 +62,9 @@ Para mantener el proyecto ordenado y consistente, todos los integrantes deben se
   Correcto: `hero-banner.webp`  
   Incorrecto: `HeroBanner.png`, `hero_banner.webp`
 
+### Textos e idiomas
+- Todo texto visible va en `lang-es.js` y en `lang-en.js`, con la misma clave en ambos archivos.
+
 ### Estilos
 - **Nada de estilos inline** (`style="..."`) ni etiquetas `<style>` dentro del HTML.
 - Todos los estilos van en `assets/css/styles.css`.
@@ -37,9 +72,6 @@ Para mantener el proyecto ordenado y consistente, todos los integrantes deben se
 ### Íconos
 - Usar **Font Awesome** (ya está enlazado en `index.html`).
 - **No descargar íconos** ni agregar librerías externas sin consultar.
-
-### Antes de empezar a codificar
-- Leer los **comentarios al inicio de cada archivo** para entender su propósito y convenciones.
 
 ### Comunicación
 - Cualquier cambio estructural (nuevas carpetas, dependencias, etc.) debe **avisarse al equipo** primero.
@@ -61,3 +93,8 @@ Para mantener el proyecto ordenado y consistente, todos los integrantes deben se
 - **CSS**: nombres de clases en `kebab-case` (ej. `.hero-section`).
 - **JS**: nombres de variables en `camelCase`, funciones descriptivas.
 
+---
+
+## Contacto
+
+invertuoficial@gmail.com

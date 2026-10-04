@@ -1,16 +1,4 @@
 /* ==========================================
-   Estilos de la landing de Invertu
-
-   Orden del archivo:
-     1. Base (variables, body, títulos, links, botones)
-     2. Header
-     3. Hero
-     4. Secciones (beneficios, asistente, testimonios, planes, ayuda, final)
-     5. Footer
-     6. Responsive (media queries al final)
-   ========================================== */
-
-/* ==========================================
    1. Base
    ========================================== */
 :root {
@@ -20,7 +8,6 @@
     --deep: #0b3d2e;
     --gold: #f5b800;
 
-    /* Verde del fondo de la foto de la laptop (sección final) */
     --cta-green: #19855b;
 
     --bg-cream: #faf8f3;
@@ -295,7 +282,6 @@ section {
     gap: 0.6rem;
 }
 
-/* Selector de idioma (mundito + menú ES / EN) */
 .lang-menu {
     position: relative;
 }
@@ -498,7 +484,6 @@ section {
     gap: 0.55rem;
 }
 
-/* Íconos hechos con la fuente de Font Awesome (\f058 = circle-check) */
 .checklist li::before {
     content: "\f058";
 
@@ -516,7 +501,6 @@ section {
     justify-content: center;
 }
 
-/* Tarjeta del panel (hecha en HTML) */
 .dash {
     width: 100%;
     max-width: 560px;
@@ -639,7 +623,6 @@ section {
     font-size: 0.66rem;
 }
 
-/* Barra = ingresos de la semana; relleno oscuro = gastos */
 .chart-bar {
     position: relative;
     width: 100%;
@@ -658,7 +641,6 @@ section {
     background: var(--primary);
 }
 
-/* Animación de llenado (main.js agrega .will-animate y luego .is-animated) */
 .dash.will-animate .chart-bar {
     transform: scaleY(0);
     transform-origin: bottom;
@@ -1018,7 +1000,6 @@ section {
     font-size: 0.8rem;
 }
 
-/* Chat + mascota: la mascota queda a la izquierda, fuera del cuadro */
 .assistant-visual {
     display: flex;
     align-items: flex-end;
@@ -1032,7 +1013,6 @@ section {
     width: 120px;
     margin-bottom: -0.5rem;
 
-    /* Saluda cada pocos segundos; rebota al cambiar de pregunta */
     transform-origin: 50% 90%;
     animation: mascot-wave 5s ease-in-out 1s infinite;
 }
@@ -1168,7 +1148,6 @@ section {
     animation: bubble-in 0.3s ease both;
 }
 
-/* Puntitos de "escribiendo…" */
 .chat-typing {
     display: flex;
     gap: 0.3rem;
@@ -1265,16 +1244,17 @@ section {
     cursor: not-allowed;
 }
 
-/* Testimonios (carrusel) */
+/* Testimonios */
 .testimonials-track {
     display: flex;
     gap: 1.2rem;
 
     padding: 0.5rem 0.25rem 1.5rem;
 
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    touch-action: pan-y;
 }
 
 .testimonials-track::-webkit-scrollbar {
@@ -1440,7 +1420,6 @@ section {
     font-size: 0.84rem;
 }
 
-/* \f00c = check */
 .price-card li::before {
     content: "\f00c";
     margin-top: 0.15rem;
@@ -1577,7 +1556,6 @@ section {
     display: none;
 }
 
-/* \f078 = chevron-down; gira al abrir la pregunta */
 .faq summary::after {
     content: "\f078";
     color: var(--primary);
@@ -1655,7 +1633,6 @@ section {
     margin-top: 1.7rem;
 }
 
-/* La foto trae su propio fondo verde: se difuminan los bordes para que no se note el corte */
 .final-visual img {
     width: 100%;
     max-width: 560px;
@@ -1780,7 +1757,6 @@ section {
     color: var(--white);
 }
 
-/* Animación al hacer scroll (main.js agrega .reveal y luego .is-visible) */
 .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -1861,6 +1837,15 @@ section {
 
     .main-nav a.active {
         border-color: var(--border);
+    }
+
+    .main-nav .lang-menu {
+        padding-top: 0.75rem;
+    }
+
+    .main-nav .lang-list {
+        left: 0;
+        right: auto;
     }
 
 }
@@ -1959,12 +1944,8 @@ section {
     }
 
     .hero-actions {
-        width: 100%;
         flex-direction: column;
-    }
-
-    .hero-actions .btn {
-        width: 100%;
+        align-items: center;
     }
 
     .dash {

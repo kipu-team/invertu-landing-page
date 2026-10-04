@@ -31,8 +31,8 @@ window.invertuTexts.en = {
 
     // Inicio
     "hero.badge": "MONEY MANAGEMENT FOR STUDENTS",
-    "hero.title": "Understand your money.",
-    "hero.accent": "Decide better.",
+    "hero.title": "Take control of your",
+    "hero.accent": "financial future",
     "hero.lead": "Organize your transactions, plan your goals and take control of your financial life in a simple and secure way, without banking hassles.",
     "hero.explore": "Explore features",
     "hero.check1": "Access from your browser",
