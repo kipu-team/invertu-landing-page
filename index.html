@@ -10,7 +10,7 @@
         data-i18n-attr="content:meta.description"
     >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href=    "https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
@@ -18,7 +18,6 @@
         rel="stylesheet"
     >
 
-    <!-- Íconos (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="icon" href="assets/img/favicon.png">
@@ -50,7 +49,9 @@
 
             <div class="header-ctas">
 
-                <!-- Selector de idioma: el mundito abre el menú ES / EN -->
+                <a href="#" class="btn btn-ghost header-login" data-app-link="login" data-i18n="cta.login">Iniciar sesión</a>
+                <a href="#" class="btn btn-primary header-signup" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
+
                 <div class="lang-menu" id="lang-menu">
                     <button
                         type="button"
@@ -80,9 +81,6 @@
                         </li>
                     </ul>
                 </div>
-
-                <a href="#" class="btn btn-ghost header-login" data-app-link="login" data-i18n="cta.login">Iniciar sesión</a>
-                <a href="#" class="btn btn-primary header-signup" data-app-link="register" data-i18n="cta.signup">Crear cuenta gratis</a>
 
                 <button
                     type="button"
@@ -116,8 +114,8 @@
                     </span>
 
                     <h1>
-                        <span data-i18n="hero.title">Entiende tu dinero.</span>
-                        <span class="accent" data-i18n="hero.accent">Decide mejor.</span>
+                        <span data-i18n="hero.title">Toma el control de tu</span>
+                        <span class="accent" data-i18n="hero.accent">futuro financiero</span>
                     </h1>
 
                     <p class="lead" data-i18n="hero.lead">
@@ -137,28 +135,27 @@
 
                 </div>
 
-                <!-- Tarjeta del panel: 1,540 − 900 − 320 = 320 disponible -->
                 <div class="hero-visual">
                     <div class="dash" role="group" aria-label="Vista previa del panel de InvertU" data-i18n-attr="aria-label:dash.label">
 
                         <div class="dash-top">
                             <div class="dash-available">
                                 <span data-i18n="dash.available">Disponible</span>
-                                <strong>S/ 320.00</strong>
+                                <strong data-dash-value="available">S/ 320.00</strong>
                             </div>
 
                             <ul class="dash-summary" role="list">
                                 <li class="dash-row dash-row--income">
                                     <span data-i18n="dash.income">Ingresos</span>
-                                    <span>S/ 1,540</span>
+                                    <span data-dash-value="income">S/ 1,540.00</span>
                                 </li>
                                 <li class="dash-row dash-row--expense">
                                     <span data-i18n="dash.expenses">Gastos</span>
-                                    <span>S/ 900</span>
+                                    <span data-dash-value="expenses">S/ 900.00</span>
                                 </li>
                                 <li class="dash-row dash-row--goals">
                                     <span data-i18n="dash.goalsContrib">Aportes a metas</span>
-                                    <span>S/ 320</span>
+                                    <span data-dash-value="contributions">S/ 320.00</span>
                                 </li>
                             </ul>
                         </div>
@@ -166,31 +163,30 @@
                         <div class="dash-panel">
 
                             <div class="dash-chart">
-                                <div class="chart-bars" role="img" aria-label="Gráfico de ingresos y gastos por semana" data-i18n-attr="aria-label:dash.chartLabel">
+                                <div class="chart-bars" role="img" aria-label="Gráfico de gastos por categoría: comida, transporte, suscripciones y ocio" data-i18n-attr="aria-label:dash.chartLabel">
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w1"><span class="chart-fill chart-fill--w1"></span></div>
-                                        <small data-i18n="dash.week1">Sem 1</small>
+                                        <small class="chart-value" data-dash-category="food">380.00</small>
+                                        <div class="chart-bar" data-dash-bar="food"></div>
+                                        <small data-i18n="dash.catFood">Comida</small>
                                     </div>
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w2"><span class="chart-fill chart-fill--w2"></span></div>
-                                        <small data-i18n="dash.week2">Sem 2</small>
+                                        <small class="chart-value" data-dash-category="transport">180.00</small>
+                                        <div class="chart-bar" data-dash-bar="transport"></div>
+                                        <small data-i18n="dash.catTransport">Transp.</small>
                                     </div>
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w3"><span class="chart-fill chart-fill--w3"></span></div>
-                                        <small data-i18n="dash.week3">Sem 3</small>
+                                        <small class="chart-value" data-dash-category="subscriptions">140.00</small>
+                                        <div class="chart-bar" data-dash-bar="subscriptions"></div>
+                                        <small data-i18n="dash.catSubscriptions">Suscrip.</small>
                                     </div>
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w4"><span class="chart-fill chart-fill--w4"></span></div>
-                                        <small data-i18n="dash.week4">Sem 4</small>
+                                        <small class="chart-value" data-dash-category="leisure">200.00</small>
+                                        <div class="chart-bar" data-dash-bar="leisure"></div>
+                                        <small data-i18n="dash.catLeisure">Ocio</small>
                                     </div>
                                 </div>
 
-                                <p class="chart-title" data-i18n="dash.chartTitle">Ingresos y gastos por semana</p>
-
-                                <ul class="chart-legend" role="list" aria-hidden="true">
-                                    <li class="legend-income" data-i18n="dash.income">Ingresos</li>
-                                    <li class="legend-expense" data-i18n="dash.expenses">Gastos</li>
-                                </ul>
+                                <p class="chart-title" data-i18n="dash.chartTitle">Gastos por categoría</p>
                             </div>
 
                             <div class="dash-side">
@@ -199,23 +195,27 @@
                                 <div class="dash-goal">
                                     <div class="dash-goal-head">
                                         <span data-i18n="dash.goalName">Laptop Nueva</span>
-                                        <strong>68%</strong>
+                                        <strong data-dash-value="goal">68%</strong>
                                     </div>
-                                    <div class="progress"><span class="progress-fill"></span></div>
+                                    <div class="progress"><span class="progress-fill" id="dash-goal-fill"></span></div>
                                 </div>
 
                                 <p class="dash-label" data-i18n="dash.recent">Movimientos recientes</p>
 
-                                <div class="dash-move">
-                                    <span class="dash-move-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
-                                    <span data-i18n="dash.lunch">Almuerzo</span>
-                                    <strong>-S/ 15.00</strong>
+                                <div class="dash-move-slot">
+                                    <div class="dash-move dash-move--expense" id="dash-move">
+                                        <span class="dash-move-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+                                        <span data-i18n="dash.moveLunch">Almuerzo</span>
+                                        <strong>-S/ 15.00</strong>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
 
                     </div>
+
+                    <p class="dash-note" data-i18n="dash.sample">Datos de ejemplo</p>
                 </div>
 
             </div>
@@ -314,7 +314,6 @@
                         Pregúntale a InvertU por tus gastos, metas y suscripciones, y te responde con tus propios datos.
                     </p>
 
-                    <!-- Cada chip cambia la conversación del chat de la derecha -->
                     <ul class="prompts" role="list">
                         <li>
                             <button type="button" class="prompt" data-chat="1" aria-pressed="true" aria-controls="chat-messages">
@@ -360,7 +359,6 @@
                             <p class="chat-bubble chat-bubble--bot" id="chat-answer" data-i18n="assistant.a1">Este mes llevas S/ 240.00 en comida, en 12 movimientos.</p>
                         </div>
 
-                        <!-- Solo de adorno: el campo y el botón están desactivados -->
                         <div class="chat-input">
                             <input
                                 type="text"
@@ -389,7 +387,7 @@
         </section>
 
         <!-- ==========================================
-             Testimonios (carrusel; los circulitos los crea main.js)
+             Testimonios
              ========================================== -->
         <section id="testimonios" class="testimonials section--muted">
             <div class="container">
@@ -500,7 +498,7 @@
                     <article class="price-card price-card-featured">
                         <span class="recommended" data-i18n="plans.recommended">RECOMENDADO</span>
                         <h3 data-i18n="plans.premiumName">Plan Premium</h3>
-                        <div class="price">S/ 7.90 <span data-i18n="plans.perMonth">/mes</span></div>
+                        <div class="price">S/ 9.90 <span data-i18n="plans.perMonth">/mes</span></div>
                         <p class="price-intro" data-i18n="plans.premiumIntro">Todo lo del plan gratuito, más:</p>
                         <ul>
                             <li data-i18n="plans.premium1">Metas y recordatorios sin límite</li>
@@ -549,7 +547,6 @@
 
                 </div>
 
-                <!-- details/summary ya funcionan con teclado (Tab + Enter/Espacio) -->
                 <div class="faq">
 
                     <h3 data-i18n="faq.title">Preguntas frecuentes</h3>
@@ -579,7 +576,7 @@
                 <p class="help-contact">
                     <i class="fa-solid fa-headset" aria-hidden="true"></i>
                     <span data-i18n="help.contact">¿Tienes dudas? Escríbenos a</span>
-                    <a href="mailto:contacto@invertu.pe">contacto@invertu.pe</a>
+                    <a href="mailto:invertuoficial@gmail.com">invertuoficial@gmail.com</a>
                 </p>
 
             </div>
@@ -627,9 +624,9 @@
 
                     <p class="footer-contact">
                         <span class="visually-hidden" data-i18n="footer.contact">Contacto</span>
-                        <a href="mailto:contacto@invertu.pe">
+                        <a href="mailto:invertuoficial@gmail.com">
                             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            contacto@invertu.pe
+                            invertuoficial@gmail.com
                         </a>
                         <span>
                             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -657,7 +654,6 @@
                     <a href="#" data-app-link="privacy" data-i18n="footer.privacy">Política de privacidad</a>
                 </div>
 
-                <!-- Cuentas de ejemplo: por ahora llevan al registro de la app -->
                 <ul class="footer-social" role="list" aria-label="Redes sociales" data-i18n-attr="aria-label:footer.social">
                     <li>
                         <a href="#" data-app-link="register" aria-label="InvertU en Instagram" data-i18n-attr="aria-label:footer.instagram">
