@@ -253,6 +253,174 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
+    // Panel del hero
+    // ==========================================
+    const DASH_DELAY = 3000;
+    const COUNT_DURATION = 800;
+    const BAR_MAX = 40000;
+
+    const DASH_START = {
+        income: 154000,
+        contributions: 32000,
+        goal: 68,
+        categories: { food: 38000, transport: 18000, subscriptions: 14000, leisure: 20000 }
+    };
+
+    const DASH_MOVES = [
+        { key: "dash.moveLunch", icon: "fa-utensils", type: "expense", category: "food", amount: 1500 },
+        { key: "dash.moveBus", icon: "fa-bus", type: "expense", category: "transport", amount: 400 },
+        { key: "dash.moveStreaming", icon: "fa-tv", type: "expense", category: "subscriptions", amount: 2490 },
+        { key: "dash.moveTip", icon: "fa-hand-holding-dollar", type: "income", amount: 5000 },
+        { key: "dash.moveLaptop", icon: "fa-piggy-bank", type: "goal", amount: 3000, goal: 70 },
+        { key: "dash.moveMovies", icon: "fa-film", type: "expense", category: "leisure", amount: 2000 },
+        { key: "dash.moveCoffee", icon: "fa-mug-hot", type: "expense", category: "food", amount: 800 }
+    ];
+
+    const dashPanel = document.querySelector(".dash");
+    const dashMove = document.getElementById("dash-move");
+    const dashGoalFill = document.getElementById("dash-goal-fill");
+    const shownValues = new Map();
+
+    let dashState = copyDashState(DASH_START);
+    let dashStep = 0;
+    let dashTimer = null;
+
+    function copyDashState(state) {
+        return { ...state, categories: { ...state.categories } };
+    }
+
+    function getDashTotals(state) {
+        const expenses = Object.values(state.categories).reduce((sum, value) => sum + value, 0);
+        return {
+            income: state.income,
+            expenses,
+            contributions: state.contributions,
+            available: state.income - expenses - state.contributions,
+            goal: state.goal
+        };
+    }
+
+    function formatMoney(cents) {
+        return (cents / 100).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function countTo(element, target, format) {
+        const start = shownValues.has(element) ? shownValues.get(element) : target;
+        shownValues.set(element, target);
+
+        if (prefersReducedMotion || start === target) {
+            element.textContent = format(target);
+            return;
+        }
+
+        const startTime = performance.now();
+
+        function frame(now) {
+            if (shownValues.get(element) !== target) return;
+            const progress = Math.min((now - startTime) / COUNT_DURATION, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            element.textContent = format(Math.round(start + (target - start) * eased));
+            if (progress < 1) requestAnimationFrame(frame);
+        }
+
+        requestAnimationFrame(frame);
+    }
+
+    function renderDash() {
+        const totals = getDashTotals(dashState);
+
+        dashPanel.querySelectorAll("[data-dash-value]").forEach((element) => {
+            const name = element.dataset.dashValue;
+            const format = name === "goal" ? (value) => `${value}%` : (value) => `S/ ${formatMoney(value)}`;
+            countTo(element, totals[name], format);
+        });
+
+        dashPanel.querySelectorAll("[data-dash-category]").forEach((element) => {
+            countTo(element, dashState.categories[element.dataset.dashCategory], formatMoney);
+        });
+
+        dashPanel.querySelectorAll("[data-dash-bar]").forEach((bar) => {
+            const value = dashState.categories[bar.dataset.dashBar];
+            bar.style.height = `${Math.min(value / BAR_MAX, 1) * 100}%`;
+        });
+
+        dashGoalFill.style.width = `${dashState.goal}%`;
+    }
+
+    function fillMove(move) {
+        const sign = move.type === "income" ? "+" : "-";
+        dashMove.className = `dash-move dash-move--${move.type}`;
+        dashMove.querySelector("i").className = `fa-solid ${move.icon}`;
+        dashMove.querySelector("[data-i18n]").dataset.i18n = move.key;
+        dashMove.querySelector("[data-i18n]").textContent = t(move.key);
+        dashMove.querySelector("strong").textContent = `${sign}S/ ${formatMoney(move.amount)}`;
+    }
+
+    function showMove(move) {
+        dashMove.classList.remove("is-entering");
+        dashMove.classList.add("is-leaving");
+        window.setTimeout(() => {
+            fillMove(move);
+            restartAnimation(dashMove, "is-entering");
+        }, 300);
+    }
+
+    function applyMove(move) {
+        if (move.type === "expense") dashState.categories[move.category] += move.amount;
+        if (move.type === "income") dashState.income += move.amount;
+        if (move.type === "goal") {
+            dashState.contributions += move.amount;
+            dashState.goal = move.goal;
+        }
+    }
+
+    function nextDashStep() {
+        dashStep++;
+
+        if (dashStep >= DASH_MOVES.length) {
+            dashStep = 0;
+            dashState = copyDashState(DASH_START);
+        } else {
+            applyMove(DASH_MOVES[dashStep]);
+        }
+
+        showMove(DASH_MOVES[dashStep]);
+        renderDash();
+    }
+
+    function startDash() {
+        if (dashTimer || prefersReducedMotion) return;
+        dashTimer = window.setInterval(nextDashStep, DASH_DELAY);
+    }
+
+    function stopDash() {
+        window.clearInterval(dashTimer);
+        dashTimer = null;
+    }
+
+    let dashOnScreen = false;
+
+    function updateDashPlayback() {
+        if (dashOnScreen && !document.hidden) {
+            startDash();
+        } else {
+            stopDash();
+        }
+    }
+
+    fillMove(DASH_MOVES[0]);
+    renderDash();
+
+    if (!prefersReducedMotion) {
+        new IntersectionObserver((entries) => {
+            dashOnScreen = entries[0].isIntersecting;
+            updateDashPlayback();
+        }, { threshold: 0.2 }).observe(dashPanel);
+
+        document.addEventListener("visibilitychange", updateDashPlayback);
+    }
+
+    // ==========================================
     // Testimonios
     // ==========================================
     const testimonials = document.getElementById("testimonios");

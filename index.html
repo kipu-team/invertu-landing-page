@@ -10,7 +10,7 @@
         data-i18n-attr="content:meta.description"
     >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href=    "https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
@@ -141,21 +141,21 @@
                         <div class="dash-top">
                             <div class="dash-available">
                                 <span data-i18n="dash.available">Disponible</span>
-                                <strong>S/ 320.00</strong>
+                                <strong data-dash-value="available">S/ 320.00</strong>
                             </div>
 
                             <ul class="dash-summary" role="list">
                                 <li class="dash-row dash-row--income">
                                     <span data-i18n="dash.income">Ingresos</span>
-                                    <span>S/ 1,540</span>
+                                    <span data-dash-value="income">S/ 1,540.00</span>
                                 </li>
                                 <li class="dash-row dash-row--expense">
                                     <span data-i18n="dash.expenses">Gastos</span>
-                                    <span>S/ 900</span>
+                                    <span data-dash-value="expenses">S/ 900.00</span>
                                 </li>
                                 <li class="dash-row dash-row--goals">
                                     <span data-i18n="dash.goalsContrib">Aportes a metas</span>
-                                    <span>S/ 320</span>
+                                    <span data-dash-value="contributions">S/ 320.00</span>
                                 </li>
                             </ul>
                         </div>
@@ -163,31 +163,30 @@
                         <div class="dash-panel">
 
                             <div class="dash-chart">
-                                <div class="chart-bars" role="img" aria-label="Gráfico de ingresos y gastos por semana" data-i18n-attr="aria-label:dash.chartLabel">
+                                <div class="chart-bars" role="img" aria-label="Gráfico de gastos por categoría: comida, transporte, suscripciones y ocio" data-i18n-attr="aria-label:dash.chartLabel">
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w1"><span class="chart-fill chart-fill--w1"></span></div>
-                                        <small data-i18n="dash.week1">Sem 1</small>
+                                        <small class="chart-value" data-dash-category="food">380.00</small>
+                                        <div class="chart-bar" data-dash-bar="food"></div>
+                                        <small data-i18n="dash.catFood">Comida</small>
                                     </div>
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w2"><span class="chart-fill chart-fill--w2"></span></div>
-                                        <small data-i18n="dash.week2">Sem 2</small>
+                                        <small class="chart-value" data-dash-category="transport">180.00</small>
+                                        <div class="chart-bar" data-dash-bar="transport"></div>
+                                        <small data-i18n="dash.catTransport">Transp.</small>
                                     </div>
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w3"><span class="chart-fill chart-fill--w3"></span></div>
-                                        <small data-i18n="dash.week3">Sem 3</small>
+                                        <small class="chart-value" data-dash-category="subscriptions">140.00</small>
+                                        <div class="chart-bar" data-dash-bar="subscriptions"></div>
+                                        <small data-i18n="dash.catSubscriptions">Suscrip.</small>
                                     </div>
                                     <div class="chart-col">
-                                        <div class="chart-bar chart-bar--w4"><span class="chart-fill chart-fill--w4"></span></div>
-                                        <small data-i18n="dash.week4">Sem 4</small>
+                                        <small class="chart-value" data-dash-category="leisure">200.00</small>
+                                        <div class="chart-bar" data-dash-bar="leisure"></div>
+                                        <small data-i18n="dash.catLeisure">Ocio</small>
                                     </div>
                                 </div>
 
-                                <p class="chart-title" data-i18n="dash.chartTitle">Ingresos y gastos por semana</p>
-
-                                <ul class="chart-legend" role="list" aria-hidden="true">
-                                    <li class="legend-income" data-i18n="dash.income">Ingresos</li>
-                                    <li class="legend-expense" data-i18n="dash.expenses">Gastos</li>
-                                </ul>
+                                <p class="chart-title" data-i18n="dash.chartTitle">Gastos por categoría</p>
                             </div>
 
                             <div class="dash-side">
@@ -196,23 +195,27 @@
                                 <div class="dash-goal">
                                     <div class="dash-goal-head">
                                         <span data-i18n="dash.goalName">Laptop Nueva</span>
-                                        <strong>68%</strong>
+                                        <strong data-dash-value="goal">68%</strong>
                                     </div>
-                                    <div class="progress"><span class="progress-fill"></span></div>
+                                    <div class="progress"><span class="progress-fill" id="dash-goal-fill"></span></div>
                                 </div>
 
                                 <p class="dash-label" data-i18n="dash.recent">Movimientos recientes</p>
 
-                                <div class="dash-move">
-                                    <span class="dash-move-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
-                                    <span data-i18n="dash.lunch">Almuerzo</span>
-                                    <strong>-S/ 15.00</strong>
+                                <div class="dash-move-slot">
+                                    <div class="dash-move dash-move--expense" id="dash-move">
+                                        <span class="dash-move-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+                                        <span data-i18n="dash.moveLunch">Almuerzo</span>
+                                        <strong>-S/ 15.00</strong>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
 
                     </div>
+
+                    <p class="dash-note" data-i18n="dash.sample">Datos de ejemplo</p>
                 </div>
 
             </div>
