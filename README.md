@@ -1,6 +1,9 @@
 # INVERTU LANDING PAGE
 
 Landing page de InvertU, plataforma web de gestión financiera para estudiantes universitarios.
+Presenta el propósito de la plataforma, sus beneficios, planes (Free y Premium) y los canales de contacto.
+
+**Sitio desplegado (AWS S3):** http://invertu-landing-page.s3-website-us-east-1.amazonaws.com
 
 ## Estructura del proyecto
 
@@ -64,6 +67,7 @@ Para mantener el proyecto ordenado y consistente, todos los integrantes deben se
 
 ### Textos e idiomas
 - Todo texto visible va en `lang-es.js` y en `lang-en.js`, con la misma clave en ambos archivos.
+- **Idiomas:** español e inglés, con selector en la barra superior.
 
 ### Estilos
 - **Nada de estilos inline** (`style="..."`) ni etiquetas `<style>` dentro del HTML.
@@ -84,6 +88,7 @@ Para mantener el proyecto ordenado y consistente, todos los integrantes deben se
 - CSS3
 - JavaScript (Vanilla)
 - Font Awesome (íconos)
+- Amazon S3 (despliegue en producción)
 
 ---
 
@@ -95,6 +100,25 @@ Para mantener el proyecto ordenado y consistente, todos los integrantes deben se
 
 ---
 
+## Equipo
+
+**Kipu Team** 
+- Cahuana Lopez Luz Margarita (u20241e017)
+- Eustaquio Romani Bruno Misael (u20241d981)
+- Hallasi Yucra Maria Fernanda (u202415759)
+- Saldaña Melgar Matías (u20241e284)
+- Vasquez Quispe Milene (u202419061)
+
+---
+
 ## Contacto
 
 invertuoficial@gmail.com
+
+---
+
+**Redes sociales oficiales:**
+
+- Instagram: https://www.instagram.com/invertu_oficial/
+- TikTok: https://www.tiktok.com/@kipu_team
+- LinkedIn: https://www.linkedin.com/in/invertu-oficial
